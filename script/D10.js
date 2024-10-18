@@ -347,37 +347,113 @@ const searchAndDivide = function (stringa) {
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+const removeIndex = function (number) {
+  const newMovies = []
+  //array in cui tornano tutti i film in altre posizioni
+
+  for (let i = 0; i < movies.length; i++) {
+    if (i !== number) {
+      // uso un if dentro a un for per capire se l'indice non è quello da rimuovere
+      newMovies.push(movies[i])
+      // e nel caso lo aggiunge all'array rimanente
+    }
+  }
+
+  return newMovies
+  //ritorna il nuovo array senza l'elemento che era nella posizione da rimuovere
+}
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const A = function () {
+  const container = document.getElementById('container')
+  return container
+}
+// uso .getElementById per selezionare l'elemento
+console.log(A)
+//se ci fossero elementi con quel Id li mostrerebbe in console
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+const B = function () {
+  const celle = document.querySelectorAll('td')
+  return celle
+}
+// con .querySelectorAll possiamo selezionare ogni tag assegnato nella pagina
+console.log(B)
+// dovrebbe mostrarli in console
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+const C = function () {
+  const celle = document.querySelectorAll('td')
+  //seleziona gli elementi
+
+  celle.forEach((celle) => {
+    console.log(celle.textContent)
+  })
+  // stampa il testo contenuto in console
+}
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const D = function () {
+  const links = document.querySelectorAll('a')
+  // Seleziono tutti i link nella pagina
+
+  links.forEach((link) => {
+    link.style.backgroundColor = 'red'
+  })
+  // imposta lo sfondo su rosso
+}
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+const E = function (text) {
+  const list = document.getElementById('myList')
+  //seleziona la lista non ordinata con id myList
+
+  const newItem = document.createElement('li')
+  //crea un nuovo elemento
+
+  newItem.textContent = text
+  //imposta il testo
+
+  list.appendChild(newItem)
+  // aggiunge il nuovo elemento <li> alla lista
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+const F = function () {
+  const list = document.getElementById('myList')
+  //seleziona la lista
+
+  list.innerHTML = ''
+  // Svuoto la lista impostando l'innerHTML su una stringa vuota
+}
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+const G = function () {
+  const rows = document.querySelectorAll('tr')
+  // Seleziona tutti gli elementi <tr> nel documento
 
+  rows.forEach((row) => {
+    row.classList.add('test')
+  })
+  // aggiungie la classe "test" ad ogni tag <tr>
+}
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
@@ -542,3 +618,6 @@ console.log(searchByTitle('Avengers'))
 
 console.log(searchAndDivide('Avengers'))
 //mostra in console l'esercizio 18
+
+console.log(removeIndex(2))
+//mostra in console l'esercizio 19
